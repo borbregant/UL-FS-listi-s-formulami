@@ -1,0 +1,204 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{array}
+
+\geometry{margin=1cm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.2}
+
+% Define a custom box style
+\newtcolorbox{formulaBox}[1]{
+	colback=white,
+	colframe=black,
+	boxrule=0.8pt,
+	arc=4pt,
+	left=6pt,
+	right=6pt,
+	top=2pt,
+	bottom=2pt,
+	enhanced,
+	title={\scshape #1}, % Title for the box
+	coltitle=black,
+	fonttitle=\sffamily\small,
+	attach title to upper=\\[-2mm],
+}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{document}
+\vspace*{5mm}
+\begin{multicols}{2}
+
+\begin{formulaBox}{Odvodi in inverse funkcije}
+\[
+(\arcsin x)' = \frac{1}{\sqrt{1-x^2}}\]
+\[(\arccos x)' = -\frac{1}{\sqrt{1-x^2}}\]
+\[(\arctan x)' = \frac{1}{1+x^2}\]
+\end{formulaBox}
+
+\begin{formulaBox}{Kot med premicama}
+\[
+\cos \varphi = |\frac{k_1 - k_2}{1+k_1 k_2}|
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Stacionarne točke}
+	\\
+$f'(x_0)=0$. Če $f''(x_0)>0$ → minimum, če $f''(x_0)<0$ → maksimum, če $f''(x_0)=0$ → test višjih odvodov ali infleksijska točka.
+\end{formulaBox}
+
+\begin{formulaBox}{Konveksnost / konkavnost}
+	\\
+$f''(x)>0$ → konveksna, $f''(x)<0$ → konkavna.
+\end{formulaBox}
+
+\begin{formulaBox}{Taylorjeva vrsta okrog $a$}
+\[
+f(x)=f(a)+f'(a)(x-a)+\tfrac{f''(a)}{2!}(x-a)^2+\cdots
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Per partes}
+\[
+\int u\,dv = uv - \int v\,du
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Znani integrali}
+\[
+\int e^{ax}\sin(bx)\,dx = \frac{e^{ax}}{a^2+b^2}\big(a\sin(bx) - b\cos(bx)\big) + C
+\]
+\[
+\int e^{ax}\cos(bx)\,dx = \frac{e^{ax}}{a^2+b^2}\big(a\cos(bx) + b\sin(bx)\big) + C
+\]
+\[
+\int \frac{dx}{x^2+a^2} = \frac{1}{a}\arctan\!\left(\frac{x}{a}\right)+C
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Parcialni ulomki}
+	\\
+\begin{tabular}{p{0.4\linewidth}p{0.4\linewidth}}
+ Ulomek &  Parcialni razcep \\
+\hline
+$\displaystyle\frac{px+q}{(x-a)(x-b)}, a \ne b$ & $\displaystyle\frac{A}{x-a} + \frac{B}{x-b}$ \\[4mm]
+$\displaystyle\frac{px+q}{(x-a)^2}$ & $\displaystyle\frac{A}{x-a} + \frac{B}{(x-a)^2}$ \\[4mm]
+$\displaystyle\frac{px^2+qx+r}{(x-a)(x^2+bx+c)}$ & $\displaystyle\frac{A}{x-a} + \frac{Bx+C}{x^2+bx+c}$ \\[4mm]
+\multicolumn{2}{p{\dimexpr.8\linewidth+4\tabcolsep\relax}}{%
+    kjer se $x^2+bx+c$ se ne da razstaviti naprej.} \\
+\end{tabular}
+\end{formulaBox}
+
+\begin{formulaBox}{Trigonometrične formule}
+\[
+\sin^2 x = \frac{1-\cos 2x}{2},\quad \cos^2 x = \frac{1+\cos 2x}{2}
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Univerzalna substitucija}
+\[t=\tan \tfrac{x}{2},\hspace{0.5em}
+\sin x = \frac{2t}{1+t^2},\hspace{0.5em}
+\cos x = \frac{1-t^2}{1+t^2},\hspace{0.5em}
+dx=\frac{2}{1+t^2}dt
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Prostornina in površina vrtenine, dolžina loka}
+\[
+V = \pi\int_a^b f(x)^2 dx\]
+\[
+pl = 2\pi\int_a^b f(x)\sqrt{1+(f'(x))^2}\,dx
+\]
+\[L=\int_a^b \sqrt{1+(f'(x))^2}\,dx\]
+\end{formulaBox}
+
+\begin{formulaBox}{Normala in tangentna ravnina}
+	\\
+Normala $\vec{n}=(f_x,f_y,-1)$\\
+Tangentna ravnina $z=f_x(x_0,y_0)x+f_y(x_0,y_0)y+d$.
+\end{formulaBox}
+
+\begin{formulaBox}{Ekstremi 2D}
+	\\
+$\det H_f>0, f_{xx}>0$: minimum\\
+$\det H_f>0, f_{xx}<0$: maksimum\\
+$\det H_f<0$: sedlo\\
+$\det H_f=0$: ne vemo
+\end{formulaBox}
+
+\begin{formulaBox}{Bernoullijeva enačba}
+\[
+y' + p(x)y = q(x)y^\alpha,\quad \alpha\ne 0,1
+\]
+Substitucija $z = y^{1-\alpha}$
+\end{formulaBox}
+
+\begin{formulaBox}{LDE 2. reda in Wronski}
+\[
+y'' + p(x)y' + q(x)y = f(x)
+\]
+Neodvisnost rešitev $y_1,y_2$ testiramo z Wronskim:
+\[
+W(y_1,y_2) = 
+\begin{vmatrix}
+y_1 & y_2 \\[4pt]
+y_1' & y_2'
+\end{vmatrix}
+\]
+Če $W\neq 0$ na intervalu → rešitvi linearno neodvisni.
+\[y_p = C_1(x)y_1+C_2(x)y_2,\, \text{kjer}\]
+\begin{align*}
+C_1'(x)y_1+C_2'(x)y_2&=0  \\
+C_1'(x)y_1'+C_2'(x)y_2'&=f(x)
+\end{align*}
+\[C_1(x)=-\int\frac{f(x)y_2(x)}{W(x)}dx\quad C_2(x)=\int\frac{f(x)y_1(x)}{W(x)}dx\]
+\end{formulaBox}
+
+\begin{formulaBox}{Homogena LDE s konstantnimi koef.}
+\[y''+py'+qy=0\]
+Nastavek $y=e^{\lambda x},\quad \lambda^2+p\lambda+q=0$
+\begin{itemize}
+\item $\lambda_1\neq\lambda_2 \rightarrow y_1=e^{\lambda_1 x},\, y_2=e^{\lambda_2 x}$
+\item $\lambda_1=\lambda_2 \rightarrow y_1=e^{\lambda_1 x},\, y_2=xe^{\lambda_1 x}$
+\item $\lambda_1=a+bi,\, \lambda_2 =a-bi \rightarrow y_1=e^{ax}\sin(bx),\, y_2=e^{ax}\cos(bx)$
+\end{itemize}
+\end{formulaBox}
+
+\begin{formulaBox}{Metoda nedoločenih koeficientov (nastavki $y_p$)}
+
+\[y''+py'+qy=f(x)\]
+\begin{enumerate}
+\item $f(x)=e^{ax} P(x)$: (kjer je $P$ polinom stopnje $n$)
+\[y_P(x) = x^r e^{ax} Q(x),\]
+kjer je $Q$ polinom stopnje $n$ z neznanimi koeficienti in je $\lambda = a$ $r$-kratni koren karakteristične enačbe.
+
+\item $f(x)=e^{ax} (P_1(x) \cos(bx) + P_2(x) \sin(bx))$:
+\[y_P(x) = x^r e^{ax} (Q_1(x) \cos(bx) + Q_2(x) \sin(bx)) ,\]
+kjer sta $Q_1$ in $Q_2$ polinoma stopnje $\max\{n_1, n_2\}$ z neznanimi koeficienti in je $\lambda = a + ib$ $r$-kratni koren karakteristične enačbe.
+\item $f = f_1 + f_2 + \cdots + f_m$:
+Partikularno rešitev poiščemo kot vsoto zgoraj omenjenih nastavkov $y_P = y_{P1} + y_{P2} + \cdots + y_{Pm}$.
+\end{enumerate}
+\end{formulaBox}
+
+
+\begin{formulaBox}{Vezani ekstremi}
+    %...
+	...
+\end{formulaBox}
+
+\end{multicols}
+\begin{formulaBox}{Faktorizacija in defaktorizacija}
+\begin{align*}
+\sin \alpha + \sin \beta &= 2 \sin \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} & \sin \alpha \cos \beta &= \frac{1}{2}(\sin(\alpha + \beta) + \sin(\alpha - \beta)) \\
+\cos \alpha + \cos \beta &= 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} & \cos \alpha \cos \beta &= \frac{1}{2}(\cos(\alpha + \beta) + \cos(\alpha - \beta)) \\
+\cos \alpha - \cos \beta &= -2 \sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2} & \sin \alpha \sin \beta &= \frac{1}{2}(\cos(\alpha - \beta) - \cos(\alpha + \beta))
+\end{align*}
+\end{formulaBox}
+\end{document}

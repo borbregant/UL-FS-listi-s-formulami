@@ -1,0 +1,421 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{array}
+
+\geometry{margin=1cm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.2}
+
+% Define a custom box style
+\newtcolorbox{formulaBox}[1]{
+	colback=white,
+	colframe=black,
+	boxrule=0.8pt,
+	arc=4pt,
+	left=6pt,
+	right=6pt,
+	top=2pt,
+	bottom=2pt,
+	enhanced,
+	title={\scshape #1}, % Title for the box
+	coltitle=black,
+	fonttitle=\sffamily\small,
+	attach title to upper=\\[-2mm],
+}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{document}
+\vspace*{5mm}
+\begin{multicols}{2}
+
+
+\begin{formulaBox}{Znani integrali}
+\[
+\int e^{ax}\sin(bx)\,dx = \frac{e^{ax}}{a^2+b^2}\big(a\sin(bx) - b\cos(bx)\big) + C
+\]
+\[
+\int e^{ax}\cos(bx)\,dx = \frac{e^{ax}}{a^2+b^2}\big(a\cos(bx) + b\sin(bx)\big) + C
+\]
+\[
+\int \frac{dx}{x^2+a^2} = \frac{1}{a}\arctan\!\left(\frac{x}{a}\right)+C
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Parcialni ulomki}
+	\\
+\begin{tabular}{p{0.4\linewidth}p{0.4\linewidth}}
+ Ulomek &  Parcialni razcep \\
+\hline
+$\displaystyle\frac{px+q}{(x-a)(x-b)}, a \ne b$ & $\displaystyle\frac{A}{x-a} + \frac{B}{x-b}$ \\[4mm]
+$\displaystyle\frac{px+q}{(x-a)^2}$ & $\displaystyle\frac{A}{x-a} + \frac{B}{(x-a)^2}$ \\[4mm]
+$\displaystyle\frac{px^2+qx+r}{(x-a)(x^2+bx+c)}$ & $\displaystyle\frac{A}{x-a} + \frac{Bx+C}{x^2+bx+c}$ \\[4mm]
+\multicolumn{2}{p{\dimexpr.8\linewidth+4\tabcolsep\relax}}{%
+    kjer se $x^2+bx+c$ se ne da razstaviti naprej.} \\
+\end{tabular}
+\end{formulaBox}
+
+\begin{formulaBox}{Trigonometrične formule}
+\[
+\sin^2 x = \frac{1-\cos 2x}{2},\quad \cos^2 x = \frac{1+\cos 2x}{2}
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Univerzalna substitucija}
+\[t=\tan \tfrac{x}{2},\hspace{0.5em}
+\sin x = \frac{2t}{1+t^2},\hspace{0.5em}
+\cos x = \frac{1-t^2}{1+t^2},\hspace{0.5em}
+dx=\frac{2}{1+t^2}dt
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Integral s parametrom}
+	\begin{itemize}
+			\item  Če je $f$ zvezna na $D$, je $F$ zvezna na $[c,d]$ in je 
+			\[ \lim_{y\to y_0} \int_a^b f(x,y)\,dx = \int_a^b f(x,y_0)\,dx
+			\]
+			\item  Če sta $f$ in $f_y = \frac{\partial f}{\partial y}$ zvezni na $D$, je $F$  odvedljiva na $[c,d]$ in je 
+			\[  F'(y)= \int_a^b f_y(x,y)\,dx.
+			\]
+			\item  Če sta $f$ in $f_y$ zvezni na  $D$ ter sta  $u, v : [c,d] \to [a,b]$   odvedljivi funkciji, potem je funkcija 
+			$G(y) =  \int_{u(y)}^{v(y)} f(x,y)\,dx$
+			odvedljiva na $[c,d]$ in
+			\resizebox{\linewidth}{!}{$   G'(y) = \int_{u(y)}^{v(y)} f_y(x,y)\,dx  + f(v(y),y)\cdot v'(y) - f(u(y),y)\cdot u'(y).
+			$}
+			\begin{comment}
+			\item  $\displaystyle F(y)$ % = \int_a^\infty f(x,y)\,dx$   
+	    	je \emph{enakomerno konvergenten} na $[c,d]$, če za vsak $\varepsilon >0$ obstaja $B>a$ tak, da za vsak  $b>B$ velja: $\displaystyle \left| \int_b^\infty f(x,y)\,dx \right| < \varepsilon$ za vsak $y\in[c,d]$
+	  		\item \emph{(Weierstrassov kriterij)} Če obstaja taka zvezna funkcija $g$, da je  $\left| f(x,y)\right| \le g(x)$ za vsak  $(x,y) \in D$ ter je  $\displaystyle \int_a^\infty g(x)\,dx$ končen, potem  $\displaystyle F(y) = \int_a^\infty f(x,y)\,dx$ enakomerno konvergira na $[c,d]$
+	  		\end{comment}
+	\end{itemize}
+\end{formulaBox}
+
+\begin{formulaBox}{Enakomerna konvergenca integrala s parametrom}
+	\begin{itemize}
+		\item  $\displaystyle F(y)$ % = \int_a^\infty f(x,y)\,dx$   
+	    	je \emph{enakomerno konvergenten} na $[c,d]$, če za vsak $\varepsilon >0$ obstaja $B>a$ tak, da za vsak  $b>B$ velja: $\displaystyle \left| \int_b^\infty f(x,y)\,dx \right| < \varepsilon$ za vsak $y\in[c,d]$
+	  	\item \emph{Weierstrassov kriterij}: Če obstaja taka zvezna funkcija $g$, da je  $\left| f(x,y)\right| \le g(x)$ za vsak  $(x,y) \in D$ ter je  $\displaystyle \int_a^\infty g(x)\,dx$ končen, potem  $\displaystyle F(y) = \int_a^\infty f(x,y)\,dx$ enakomerno konvergira na $[c,d]$
+	\end{itemize}
+\end{formulaBox}
+
+\begin{formulaBox}{Laplaceova transformacija}
+	\[
+		{\cal L}(f)(s) \equiv F(s)= \int_0^\infty e^{-st}f(t)\,dt
+		\]
+		je \emph{ Laplaceova transformiranka} funkcije  $f$ \\	
+		Lastnosti:
+		\begin{itemize}
+			\item  ${\cal L}\left(af(t)+bg(t)\right)(s) = a{\cal L}(f)(s) + b{\cal L}(g)(s)$ 
+			\item  ${\cal L}\left(e^{at}f(t)\right)(s)={\cal L}(f)(s-a)=F(s-a)$ 
+			\item $\displaystyle {\cal L}\left(f(at)\right)(s)= \frac{1}{a}{\cal L}(f)\left(\frac{s}{a}\right)=\frac{1}{a}F\left(\frac{s}{a}\right)$
+			\item ${\cal L}(f')(s) = s {\cal L}(f)-f(0)$\\[0.5em]
+			${\cal L}(f'')(s) = s^2 {\cal L}(f)-s f(0) - f'(0)$\\[0.5em]
+			${\cal L}(f^{(n)})(s) = s^n {\cal L}(f)- s^{n-1}f(0) %- s^{n-2} f'(0)
+			- \cdots - f^{(n-1)}(0)$
+			\item $F'(s)= -{\cal L}(tf(t))(s)$\\[0.5em]
+			$F^{(n)}(s) = {\cal L}((-t)^n f(t))(s)$
+		\end{itemize} 
+		\begin{tabular}{|c|c||c|c|} \hline
+					\emph{f} &  \emph{Laplaceova tr.}  & \emph{f} & \emph{Laplaceova tr.}  \\ \hline\hline
+					{\rule[-2mm]{0mm}{7mm}$1$ }    &  $\frac{1}{s}$ & $\cos at$ & {\rule[-3mm]{0mm}{9mm} $\frac{s}{s^2+a^2}$}     \\ \hline
+					$t$   &  $\frac{1}{s^2}$  &  $\sin at$  &{\rule[-3mm]{0mm}{9mm}  $\frac{a}{s^2+a^2}$ }  \\ \hline
+					$t^n$   & $\frac{n!}{s^{n+1}}$    &  $\cosh at$  & {\rule[-3mm]{0mm}{9mm} $\frac{s}{s^2-a^2}$ } \\ \hline
+					$e^{at}$   & $\frac{1}{s-a} $   & $\sinh at$  & {\rule[-3mm]{0mm}{9mm} $\frac{a}{s^2-a^2}$ } \\ \hline
+					$t^n e^{at}$ & $\frac{n!}{(s-a)^{n+1}}$  &   &  {\rule[-3mm]{0mm}{9mm}  } \\ \hline
+		\end{tabular}
+\end{formulaBox}
+
+\begin{formulaBox}{Konvolucija funkcij}
+	\[  (f * g)(t) = \int_0^t f(u) g(t-u)\,du, \quad t\ge 0.
+	\]
+	\begin{itemize}
+		\item  $(f*g)(t) = (g*f)(t)$
+		\item  ${\cal L}(f*g)(s) = {\cal L}(f) {\cal L}(g)$
+	\end{itemize}
+\end{formulaBox}
+
+\begin{formulaBox}{Heavisedeova in Delta funkcija}
+	$$
+		H(t-a) = \left\{ \begin{array}{rl}
+		0, & t<a\\
+		1, & t \ge a
+		\end{array} 
+		\right.    
+		$$   
+		\begin{itemize}
+			\item ${\cal L}(H(t-a))(s) =  \frac{e^{-as}}{s}$
+			\item ${\cal L}\left(H(t-a) f(t-a)\right)(s)= e^{-as}{\cal L}(f)(s)$
+			\item ${\cal L}^{-1}(e^{-as} {\cal L}(f)(s))(t) = H(t-a) f(t-a)$
+		\end{itemize}
+	$$
+	\delta (t-a) = \left\{ \begin{array}{rl}
+		\infty, & t=a\\ 
+		0,  & \mbox{sicer}
+	\end{array}
+	\right. 
+	\qquad \mbox{in}  \qquad 
+	\int_0^\infty \delta(t-a) \,dt = 1.
+	$$                    
+		$$                         
+		{\cal L}( \delta(t-a))(s) =  e^{-as}.
+		$$  
+\end{formulaBox}
+
+\begin{formulaBox}{Gama in Beta funkcija}
+		\[   \Gamma (p) = \int_0^\infty x^{p-1} e^{-x}\,dx, \qquad p>0
+		\]
+
+		\begin{itemize}
+			\item $\Gamma$ je zvezna in diferenciabilna
+			\item  $\Gamma(p+1) = p\, \Gamma(p), \ \ \Gamma(n+1)= n!, n\in \mathbb{N}$
+			\item  $\Gamma(1/2) = \sqrt{\pi}$
+		\end{itemize}
+
+		\[  B(p,q) = \int_0^1 x^{p-1} (1-x)^{q-1}\,dx,\qquad p,q>0
+		\]
+		\begin{itemize}
+			\item  $B$ je zvezna in diferenciabilna po obeh spremenljivkah
+			\item  $B(p,q)= B(q,p)$ 
+			\item  $\displaystyle B(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$
+			\item  $\displaystyle B(p,q) =  2 \int_0^{\pi/2} \cos^{2p-1}\varphi \sin^{2q-1}\varphi\,d\varphi, \mbox{ za } p>0,\ q>0$
+		\end{itemize}
+\end{formulaBox}
+
+\begin{formulaBox}{Funkcijske in Potenčne vrste}
+	\\
+	ITFR 04
+\end{formulaBox}
+
+\begin{formulaBox}{Potenčna metoda in Frobeniusova metoda}
+	\\
+	ITFR 05, ITFR 06
+
+	Frobeniusova
+	$$y=\sum_{m=0}^\infty a_m (x-x_0)^{m+r},\text{\quad pri }x_0=0:\  y=\sum_{m=0}^\infty a_m x^{m+r}.$$
+	Iz koeficienta pri najnižji potenci  dobimo \emph{karakteristično enačbo}, kvadratno enačbo za $r$ % $r(r\!-\!1)+b_0 r +c_0=0$ 
+	z rešitvama $r_1$, $r_2$.
+	\begin{enumerate}
+		\item Različni rešitvi $r_1$, $r_2$, $r_1-r_2\notin \mathbb{Z}$: Linearno neodvisni rešitvi sta 
+   	$$			y_1(x)=x^{r_1}\sum_{m=0}^\infty a_m x^m,\quad
+			y_2(x)=x^{r_2}\sum_{m=0}^\infty A_m x^m.$$
+		
+		\item Dvojna rešitev $r_1=r_2=r$.
+		Rešitvi  sta
+		$$y_1(x)= x^{r}\sum_{m=0}^\infty a_m x^m$$
+		$y_2(x)$ izračunamo po metodi zniževanja reda
+		
+		\item Različni rešitvi, $r_1-r_2\in \mathbb{Z}$, $r_1-r_2> 0$. Rešitvi sta 
+		$$			y_1(x)=x^{r_1} \sum_{m=0}^\infty a_m x^m$$
+		$y_2(x)$ izračunamo po metodi zniževanja reda
+
+		\item Kompleksni  rešitvi $r_1$, $r_2=\overline{r_1}$. Zapišemo 
+		$y(x)=x^{r_1}\sum_{m=0}^\infty a_m x^m,$ $a_m\in \mathbb{C}$. 
+		Rešitvi  dobimo kot realni oz. imaginarni del. 
+	\end{enumerate} 
+\end{formulaBox}
+
+\begin{formulaBox}{Legendrova enačba in Legendrovi polinomi}
+	$$(1-x^2)y''-2xy'+n(n+1)y=0.$$	
+	Vsako rešitev te enačbe imenujemo \emph{Legendrova funkcija}. Poiščemo jo z metodo potenčnih vrst.
+	Splošna rešitev Legendrove enačbe je oblike
+	$$y(x)=a_0 y_1(x)+a_1 y_2(x),$$
+	kjer je
+	\begin{eqnarray*}
+	y_1(x)\!\!&\!\!=\!\!&\!\! 1 -\frac{n(n+1)}{2!}x^2+ \frac{(n-2)n (n+1)(n+3)}{4!}x^4-\cdots ,\\
+	y_2(x)\!\!&\!\!=\!\!&\!\!x-\frac{(n-1)(n+2)}{3!}x^3+\frac{(n-3)(n-1)(n+2)(n+4)}{5!}x^5-\cdots
+	\end{eqnarray*}
+	Vrsti konvergirata za $|x|<1$ (ali pa sta polinoma) in predstavljata dve linearno neodvisni rešitvi.
+
+	\begin{itemize}
+	\item  Pri 
+	$n=0$ sta rešitvi enačbe  $(1-x^2)y''-2xy'=0$ 
+	 $$y_1(x)=1,\quad\qquad y_2(x)=\frac{1}{2}\ln \frac{1+x}{1-x}.$$
+
+  \item Pri $n=1$ sta rešitvi enačbe  $(1-x^2)y''-2xy'+2y=0$  
+  $$y_2(x)=x,\quad\qquad y_1(x)=1-\frac{1}{2} x \ln \frac{1+x}{1-x}.$$
+\end{itemize}
+
+Splošno:  Pri sodem $n$ je  $y_1(x)$ polinom stopnje $n$, pri lihem $n$ je $y_2(x)$ polinom stopnje $n$ $\Rightarrow$ \emph{Legendrovi polinomi $P_n$}:
+
+	$$P_n(x)=\sum_{m=0}^{\left\lfloor n/2\right\rfloor}(-1)^m \frac{(2n-2m)!}{2^n m! (n-m)!(n-2m)!}\, x^{n-2m}.$$
+
+\begin{eqnarray*}	
+P_0(x)&=& 1,\\
+P_1(x)&=& x,\\
+P_2(x)&=& \frac{1}{2}(3x^2-1),\\
+P_3(x)&=& \frac{1}{2}(5x^3-3x) ,\\
+P_4(x)&=& \frac{1}{8}(35x^4-30x^2+3)\\
+\end{eqnarray*}	
+
+
+\medskip
+Rodrigues:	$P_n(x)=\frac{1}{2^n n!}\,\frac{d^n}{d x^n}\left( (x^2-1)^n\right)$
+		\begin{itemize}
+			\item[(a)] so ortogonalni na intervalu $\left[-1,1\right]$,  %velja namreč
+			$$	\int_{-1}^1 P_n(x)P_m(x)\,dx=0,\quad m\ne n.$$\index{ortogonalnost}
+			\item[(b)] $\displaystyle	\int_{-1}^1 P_n(x)\,dx=0,\quad n\ge 1.$
+			\item[(c)] 
+			$\displaystyle
+			\int_{-1}^1 \left(P_n(x)\right)^2\,dx=\frac{2}{2n+1}.\label{leg:norma}
+			$
+			\item[(d)] $P_n$ so sode funkcije pri sodem $n$ in lihe funkcije pri lihem $n$, $P_n(-x)=(-1)^n P_n(x),$  $P_n(1)=1$.
+			
+			\item[(e)] $(2n+1)P_n(x)=\left( P_{n+1}(x)-P_{n-1}(x)\right)'.$
+		\end{itemize}
+\end{formulaBox}
+
+\begin{formulaBox}{Besselova enačba in Besselove funkcije}
+	$$	x^2y''+xy'+(x^2-\nu ^2)y=0,\quad \nu\ge 0.$$
+
+Vsako rešitev te enačbe imenujemo \emph{Besselova funkcija}. Poiščemo jo s Frobeniusovo metodo.
+
+(I) $\nu=n\in\mathbb{N}\cup \{0\}$:
+
+	$$
+		J_n(x)=x^n \sum_{k=0}^\infty \frac{(-1)^k }{2^{2k+n}\,k!\,(n+k)!}\, x^{2k},\quad n\ge 0.
+	$$
+
+
+(II) $\nu > 0$, $\nu\notin \mathbb{N}$
+	$$
+J_\nu(x)=x^\nu \sum_{k=0}^\infty \frac{(-1)^k }{2^{2k+\nu}\,k!\,\Gamma (\nu+k+1)}\, x^{2k}.$$
+
+
+Pri $\nu \notin \mathbb{N}\cup \{0\}$ je splošna rešitev oblike
+$$y(x)=c_1 J_{\nu} (x)+c_2 J_{-\nu} (x),\qquad \nu\ne n, $$
+kjer je
+	$$	J_{-\nu}(x)=x^{-\nu} \sum_{k=0}^\infty \frac{(-1)^k }{2^{2k-\nu}\,k!\,\Gamma (-\nu+k+1)}\, x^{2k}.$$
+
+
+Pri vseh ostalih vrednostih $\nu$ je splošna rešitev oblike
+
+$$y(x)=c_1 J_{\nu} (x)+c_2 Y_{\nu} (x),\quad x>0. $$
+
+kjer je $Y_{\nu}$ \emph{Besselova funkcija druge vrste} oz. {Neumannova funkcija} reda $\nu$, 
+
+	$$	Y_\nu (x)=\frac{J_\nu (x)\, \cos (\nu \pi)-J_{-\nu}(x)}{\sin (\nu \pi)},\ Y_n (x)=\lim_{\nu\to n} Y_\nu (x).$$
+
+
+		\begin{itemize}
+			\item $\left( x^\nu J_\nu (x)\right)'=x^\nu J_{\nu-1}(x)$,
+			\item $\left( x^{-\nu} J_\nu (x)\right)'=-x^{-\nu} J_{\nu+1}(x)$,
+			\item $J_{\nu-1}(x)+J_{\nu+1}(x)=\frac{2\nu}{x}\,J_\nu (x)$,
+			\item $J_{\nu-1}(x)-J_{\nu+1}(x)=2 J'_\nu (x)$,
+			\item $J_{-n}(x)=(-1)^n J_n(x).$
+		\end{itemize}
+\end{formulaBox}
+
+
+
+\begin{formulaBox}{Fourierove vrste}
+	\begin{eqnarray*}
+				F(x)&=&\frac{a_0}{2} + \sum_{n=1}^\infty \left(a_n \cos \frac{2 n\pi}{b-a}x +b_n \sin \frac{2 n\pi}{b-a}x\right),\\	
+				&\  & \\
+				a_0&=&\frac{2}{b-a}\int_{a}^b f(x)\, dx, \\[3mm]  
+				a_n&=&\frac{2}{b-a}\int_{a}^b f(x)\cos \frac{2n\pi x}{b-a}\, dx,\quad n=1,2,3,\ldots\\[3mm]  
+				b_n&=&\frac{2}{b-a}\int_{a}^b f(x)\sin \frac{2n\pi x}{b-a}\, dx,\quad n=1,2,3,\ldots
+	\end{eqnarray*}
+
+	Če je funkcija $f$ definirana na $(0,a)$, jo lahko razvijemo v Fourierovo vrsto tudi kot
+		\begin{itemize}
+			\item liho funkcijo s periodo $2a$: 
+			\textbf{sinusna Fourierova vrsta} za funkcijo $f$ %: [0,\pi] \rightarrow \mathbb{R}$:
+			$$F_\text{s}(x) = \sum_{n=1}^\infty b_n \sin \frac{n\pi x}{a},  \, b_n = \frac{2}{a} \int_0^a \!\!f(x) \sin  \frac{n\pi x}{a}\,dx.$$ 
+			\item sodo funkcijo s periodo $2 a$: 
+			\textbf{kosinusna Fourierova vrsta} za funkcijo $f$ %: [0,\pi] \rightarrow \mathbb{R}$:
+			$$F_\text{c}(x) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos \frac{n\pi x}{a}, \, a_n = \frac{2}{a} \int_0^a \!\! f(x) \cos \frac{n\pi x}{a}\,dx.$$
+		\end{itemize}
+\end{formulaBox}
+
+\begin{formulaBox}{Posplošene Fourierove vrste}
+	\\
+	\textbf{Sturm-Liouvillov problem}: diferencialna enačba
+	$$	\left(p(x) y'\right)'+(q(x)+\lambda r(x))y=0, \quad a\le x\le b,$$
+	z robnima pogojema 
+	$$		\alpha_1 y(a)+\alpha_2 y'(a)=0,\quad
+		\beta_1 y(b) +\beta_2 y'(b)=0.$$
+
+	\textbf{Posplošena Fourierova vrsta}: $$f(x)=\sum_{m=0}^\infty a_m y_m(x),$$	
+	$$
+		a_m=\frac{1}{\parallel y_m\parallel ^2}\, \int_a^b r(x)f(x)y_m(x)\,dx,\qquad m=0,1,2,...$$
+\end{formulaBox}
+
+\begin{formulaBox}{Fourier Legendrove vrste}
+	$$(1-x^2)y''-2xy'+n(n+1)y=0,$$
+	$$f(x)=a_0P_0(x)+a_1 P_1(x)+a_2 P_2(x)+\cdots .$$
+	%kjer so $P_m(x)$ Legendrovi polinomi (glejte (\ref{eq:LegendrePoly}) na strani~\pageref{eq:LegendrePoly}).\index{Legendrov polinom}\index{polinom!Legendrov}
+	%$$P_0(x)=1, P_1(x)=x, P_2(x)=\frac{3}{2}x^2-\frac{1}{2}, P_3(x)=\frac{5}{2}x^3-\frac{3}{2}x,\ldots $$
+	Upoštevamo
+	$ \parallel P_m\parallel =\sqrt{\frac{2}{2m+1}}$ in dobimo
+	$$a_m=\frac{2m+1}{2}\int_{-1}^1 f(x)P_m(x)\, dx,\qquad m=0,1,2\dots.$$
+\end{formulaBox}
+
+\begin{formulaBox}{Fourier Besselove vrste}
+	\\
+	Za vsak $n\ge 0$ zaporedje Besselovih funkcij prve vrste
+	$$J_n(k_{n,1}x),\ J_n(k_{n,2}x),\ J_n(k_{n,3}x),\ \ldots
+	$$
+	% koeficienti $k_{n,m}$ iz 
+	tvori ortogonalno množico na $[0,\!R ]$ glede na utežno funkcijo $r(x)\!\!=\!\!x$. Velja
+	$$\int_0^Rx\, J_n(k_{n,m}x)\,J_n(k_{n,j}x)\,dx =0,\qquad j\ne m.$$
+	Tu so  $\alpha_{n,1}< \alpha_{n,2}< \alpha_{n,3}<\cdots$ ničle funkcije $J_n$ %za katere velja $\lim_{m\to\infty}\alpha_{n,m}=\infty$. %Vzamemo torej
+	in 
+	$$
+	k_{n,m}=\frac{\alpha_{n,m}}{R},\quad m=1,2,3,\ldots.
+	$$
+
+	Pri fiksnem $n$ definiramo  \emph{Fourier-Besselovo vrsto},
+	$$f(x)=%\sum_{m=1}^\infty a_m J_n(k_{n,m}x)=
+	a_1 J_n(k_{n,1}x)+a_2 J_n(k_{n,2}x)+a_3 J_n(k_{n,3}x)+\cdots, $$
+	$$a_m=\frac{1}{\parallel J_n(k_{n,m}x)\parallel ^2 }\, \int_0^R x\,f(x)J_n(k_{n,m}x)\,dx,\qquad m=1,2,...$$	
+	$$	\parallel J_n(k_{n,m}x)\parallel ^2=\int_0^R x\,J_n^2(k_{n,m}x)\,dx=\frac{R^2}{2}\, J_{n+1}^2(k_{n,m}R).$$
+
+	$(x^nJ_n(x))'=x^nJ_{n-1}(x)$, $J_{n-1}(x)+J_{n+1}(x)=\frac{2n}{x}J_n(x)$
+\end{formulaBox}
+
+\begin{formulaBox}{Fourierov integral}
+	$$
+	F(x)=\int_0^\infty \left[ A(w)\cos wx+B(w)\sin wx\right] \,dw,
+	$$
+$$A(w)=\frac{1}{\pi}\int_{-\infty}^{\infty}f(v)\cos w v \,dv,\, B(w)=\frac{1}{\pi}\int_{-\infty}^{\infty}f(v)\sin w v \,dv.$$
+
+	\textbf{Fourierov kosinusni integral} za sodo funkcijo $f$ je enak
+	$$	F(x)=\int_0^\infty  A(w)\cos wx\,dw,\,
+		A(w)=\frac{2}{\pi}\int_{0}^{\infty}f(v)\cos w v \,dv.$$
+	\textbf{Fourierov sinusni integral} za liho funkcijo $f$ je enak
+	$$	F(x)=\int_0^\infty  B(w)\sin wx\,dw,\,
+	B(w)=\frac{2}{\pi}\int_{0}^{\infty}f(v)\sin w v \,dv.$$
+
+\end{formulaBox}
+
+\begin{formulaBox}{Fourierova transformacija}
+
+	\emph{Fourierova kosinusna transformacija} ${\mathscr{F}}_c\,:\, f\mapsto \hat f_c$
+	$$\hat f_c(w)=\sqrt{\frac{\pi}{2}}\,A(w)=\sqrt{\frac{2}{\pi}} \int_0^\infty f(x)\cos wx \,dx,$$
+	$$	f(x)=\sqrt{\frac{2}{\pi}} \int_0^\infty \hat f_c(w)\cos wx \,dw. \ \text{(inverz)}$$
+
+	\emph{Fourierova sinusna transformacija} ${\mathscr{F}}_s\,:\, f\mapsto \hat f_s$ 
+	$$\hat f_s(w)=\sqrt{\frac{\pi}{2}}\,B(w)=\sqrt{\frac{2}{\pi}} \int_0^\infty f(x)\sin wx \,dx,$$
+	$$f(x)=\sqrt{\frac{2}{\pi}} \int_0^\infty \hat f_s(w)\sin wx \,dw.\ \text{(inverz)}$$
+
+\end{formulaBox}
+
+\end{multicols}
+\begin{formulaBox}{Faktorizacija in defaktorizacija}
+\begin{align*}
+\sin \alpha + \sin \beta &= 2 \sin \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} & \sin \alpha \cos \beta &= \frac{1}{2}(\sin(\alpha + \beta) + \sin(\alpha - \beta)) \\
+\cos \alpha + \cos \beta &= 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} & \cos \alpha \cos \beta &= \frac{1}{2}(\cos(\alpha + \beta) + \cos(\alpha - \beta)) \\
+\cos \alpha - \cos \beta &= -2 \sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2} & \sin \alpha \sin \beta &= \frac{1}{2}(\cos(\alpha - \beta) - \cos(\alpha + \beta))
+\end{align*}
+\end{formulaBox}
+
+
+\end{document}

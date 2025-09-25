@@ -1,0 +1,252 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{array}
+
+\geometry{margin=1cm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.2}
+
+% Define a custom box style
+\newtcolorbox{formulaBox}[1]{
+	colback=white,
+	colframe=black,
+	boxrule=0.8pt,
+	arc=4pt,
+	left=6pt,
+	right=6pt,
+	top=2pt,
+	bottom=2pt,
+	enhanced,
+	title={\scshape #1}, % Title for the box
+	coltitle=black,
+	fonttitle=\sffamily\small,
+	attach title to upper=\\[-2mm],
+}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{document}
+\vspace*{5mm}
+\begin{multicols}{2}
+
+
+\begin{formulaBox}{Znani integrali}
+\[
+\int e^{ax}\sin(bx)\,dx = \frac{e^{ax}}{a^2+b^2}\big(a\sin(bx) - b\cos(bx)\big) + C
+\]
+\[
+\int e^{ax}\cos(bx)\,dx = \frac{e^{ax}}{a^2+b^2}\big(a\cos(bx) + b\sin(bx)\big) + C
+\]
+\[
+\int \frac{dx}{x^2+a^2} = \frac{1}{a}\arctan\!\left(\frac{x}{a}\right)+C
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Parcialni ulomki}
+	\\
+\begin{tabular}{p{0.4\linewidth}p{0.4\linewidth}}
+ Ulomek &  Parcialni razcep \\
+\hline
+$\displaystyle\frac{px+q}{(x-a)(x-b)}, a \ne b$ & $\displaystyle\frac{A}{x-a} + \frac{B}{x-b}$ \\[4mm]
+$\displaystyle\frac{px+q}{(x-a)^2}$ & $\displaystyle\frac{A}{x-a} + \frac{B}{(x-a)^2}$ \\[4mm]
+$\displaystyle\frac{px^2+qx+r}{(x-a)(x^2+bx+c)}$ & $\displaystyle\frac{A}{x-a} + \frac{Bx+C}{x^2+bx+c}$ \\[4mm]
+\multicolumn{2}{p{\dimexpr.8\linewidth+4\tabcolsep\relax}}{%
+    kjer se $x^2+bx+c$ se ne da razstaviti naprej.} \\
+\end{tabular}
+\end{formulaBox}
+
+\begin{formulaBox}{Trigonometrične formule}
+\[
+\sin^2 x = \frac{1-\cos 2x}{2},\quad \cos^2 x = \frac{1+\cos 2x}{2}
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Univerzalna substitucija}
+\[t=\tan \tfrac{x}{2},\hspace{0.5em}
+\sin x = \frac{2t}{1+t^2},\hspace{0.5em}
+\cos x = \frac{1-t^2}{1+t^2},\hspace{0.5em}
+dx=\frac{2}{1+t^2}dt
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Inverzi matrik}
+\[\begin{bmatrix}a&b\\c&d\end{bmatrix}^{-1}=\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}
+\]
+\[
+A^{-1} = \frac{1}{\det A}\,adj(A),\quad 
+adj(A)=\big[(-1)^{i+j}D_{ij}\big]^T
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Cramerjevo pravilo}
+\[
+x_i = \frac{D_i}{D},\quad D=\det(A),\quad D_i=\det(A \text{ z $i$-tim stolpcem $\vec b$})
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Lastne vrednosti}
+	\\
+$\det(A-\lambda I)=0$, lastni vektorji rešijo $(A-\lambda I)\vec v=0$.
+\end{formulaBox}
+
+\begin{formulaBox}{Linearne preslikave, podobnost, prehod med bazama}
+	...
+\end{formulaBox}
+
+\begin{formulaBox}{Skalarni, vektorski in mešani produkt}
+\[
+\vec a\cdot \vec b = |a||b|\cos\varphi =a_1b_1+a_2b_2+a_3b_3,\quad |\vec a|=\sqrt{\vec a\cdot \vec a}
+\]
+\[
+\vec a\times \vec b = 
+\det\begin{bmatrix}
+\vec i & \vec j & \vec k\\
+a_1 & a_2 & a_3\\
+b_1 & b_2 & b_3
+\end{bmatrix},\quad
+|\vec a\times \vec b|=|a||b|\sin\varphi
+\]
+\[
+(\vec a\times \vec b)\cdot \vec c = \det[a,b,c]
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Dvojni vektorski produkt, Lagrangeva identiteta}
+
+\[
+\vec (a\times\vec b)\times \vec c= (\vec a\cdot \vec c)\vec b-(\vec b\cdot \vec c)\vec a
+\]
+
+\[
+|\vec a\times \vec b|^2=|\vec a|^2|\vec b|^2-(\vec a\cdot \vec b)^2
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Razdalje}
+    %\[d(A, B) = |\overrightarrow{AB}|\]
+    \[d(T, p) = \frac{|\overrightarrow{T_0T} \times \vec{s}|}{|\vec{s}|}\]
+    \[d(T, \Sigma) = \frac{|at_x + bt_y + ct_z - d|}{|\vec{n}|}\]
+    \[d(p_1, p_2) = \frac{|(\overrightarrow{T_1T_2}, \vec{s_1}, \vec{s_2})|}{|\vec{s_1} \times \vec{s_2}|}\]
+\end{formulaBox}
+
+\begin{formulaBox}{Vektorski prostor in podprostor}
+	\\
+	dodamo? (Vaje 6)
+\end{formulaBox}
+
+\begin{formulaBox}{Dvojni integral}
+\[
+V=\int_D f(x,y)\,dx\,dy, \quad P=\int_D dx\,dy
+\]
+Polarne koordinate: $x=r\cos\varphi,\; y=r\sin\varphi,\; J = r$
+\end{formulaBox}
+
+\begin{formulaBox}{Trojni integral}
+\[
+V=\int_D dV, \quad M=\int_D \rho\,dV, \quad I=\int_D r^2\rho\,dV
+\]
+Cilindrične in sferične koordinate:
+\[
+x=r\cos\varphi,\; y=r\sin\varphi,\; z=z,\quad J=r
+\]
+\[
+x=r\sin\vartheta\cos\varphi,\, y=r\sin\vartheta\sin\varphi,\, z=r\cos\vartheta,\quad J=r^2\sin\vartheta
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Krivulje v prostoru}
+\[
+\vec r(t)=(x(t),y(t),z(t)),\quad |\dot{\vec r}(t)|=\sqrt{\dot{x}^2+\dot{y}^2+\dot{z}^2}
+\]
+\[
+l=\int_a^b |\dot{\vec r}(t)|\,dt
+\]
+\[
+\int_C f(\vec r)\,ds = \int_a^b f(\vec r(t))|\dot{\vec r}(t)|\,dt
+\]
+\[
+\int_C \vec F\cdot d\vec r = \int_a^b \vec F(\vec r(t))\cdot \dot{\vec r}(t)\,dt
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Ločni parameter, ukrivljenost, zvitost}
+\[
+s(t)=\int_{t_0}^t|\dot{\vec r}(\tau)|\,d\tau
+\]
+\[\vec{u}(s)=\vec{r}'(s),\quad \vec{p}(s)=\frac{\vec{u}'(s)}{\kappa(s)},\quad \vec{b}(s)=\vec{u}(s)\times \vec{p}(s)\]
+\[\kappa(s)=|\vec{u}'(s)|,\quad \tau(s)=-\vec{p}(s)\cdot \vec{b}'(s)\]
+\[\vec{u}'(s)= \kappa(s)\vec{p}(s), \, \vec{p}'(s) = -\kappa(s)\vec{u}(s) + \tau(s)\vec{b}(s), \, \vec{b}'(s) = -\tau(s)\vec{p}(s)\]
+\end{formulaBox}
+
+\begin{formulaBox}{Krivuljni integrali 2. reda}
+\[
+\int_C \vec F\cdot d\vec r = \int_a^b \vec F(\vec r(t))\cdot \dot{\vec r}(t)\,dt
+\]
+Če je $\vec F=\nabla u$, potem
+\[
+\int_C \vec F\cdot d\vec r = u(\vec r(b))-u(\vec r(a))
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Ploskve}
+	\\
+$z=f(x,y),\quad \vec{n}=\pm(-f_x,-f_y,-1)$\\
+$\vec r(u,v)=(x(u,v),y(u,v),z(u,v)),\quad \vec n=\pm\vec r_u\times \vec r_v$
+\[P=\int_d|\vec{n}|\,dS\]
+\end{formulaBox}
+
+\begin{formulaBox}{Ploskovni integrali}
+
+\[
+\int_S g\,dS=\int_D g(x,y,f(x,y))|\vec{n}|\,dx\,dy
+\]
+\[
+\iint_S g\,dS=\iint_D g(\vec r(u,v))\,|\vec{n}|\,du\,dv
+\]
+
+\[
+\Psi_{\vec{F}}=\int_S \vec{F}\cdot d\vec{S} = \int_S \vec{F}\cdot \vec{n}\,dS
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Izreki}
+	\\
+Gaussov izrek:
+\[
+\int_{S}\vec{F} d\vec{S}=\int_V \text{div}\vec{F}\,dV
+\]
+Stokesov izrek:
+\[
+\int_C \vec{F}\,\vec{dr} = \int_{S} \text{rot}\vec{F}\,dS
+\]
+Greenova formula:
+\[
+\int_C \vec{F}\,\vec{dr} = \int_R\left(\frac{\partial g}{\partial x}-\frac{\partial f}{\partial y}\right)\,dx\,dy
+\]
+\end{formulaBox}
+
+\begin{formulaBox}{Sistemi DE}
+	\\
+	...
+\end{formulaBox}
+
+
+
+
+
+\end{multicols}
+\begin{formulaBox}{Faktorizacija in defaktorizacija}
+\begin{align*}
+\sin \alpha + \sin \beta &= 2 \sin \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} & \sin \alpha \cos \beta &= \frac{1}{2}(\sin(\alpha + \beta) + \sin(\alpha - \beta)) \\
+\cos \alpha + \cos \beta &= 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} & \cos \alpha \cos \beta &= \frac{1}{2}(\cos(\alpha + \beta) + \cos(\alpha - \beta)) \\
+\cos \alpha - \cos \beta &= -2 \sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2} & \sin \alpha \sin \beta &= \frac{1}{2}(\cos(\alpha - \beta) - \cos(\alpha + \beta))
+\end{align*}
+\end{formulaBox}
+\end{document}
